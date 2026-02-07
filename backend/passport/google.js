@@ -6,17 +6,24 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+
+      // IMPORTANT: use your Render URL
       callbackURL: "https://voting-platform.onrender.com/auth/google/callback"
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
 
-      const user = {
-        id: profile.id,
-        name: profile.displayName,
-        email: profile.emails[0].value
-      };
+      try {
+        const user = {
+          id: profile.id,
+          name: profile.displayName,
+          email: profile.emails[0].value,
+        };
 
-      return done(null, user);
+        return done(null, user);
+
+      } catch (error) {
+        return done(error, null);
+      }
     }
   )
 );

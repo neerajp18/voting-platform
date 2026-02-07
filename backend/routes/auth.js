@@ -1,25 +1,24 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-// STEP 1: Start Google login
+
+// Google login route
 router.get(
   "/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  passport.authenticate("google", {
+    scope: ["profile", "email"]
+  })
 );
 
-// STEP 2: Handle Google callback
+
+// Google callback route
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:5173"
-  }),
-  (req, res) => {
-    // Send userId to frontend
-    const userId = req.user._id;
-
-    // Redirect with userId parameter
-    res.redirect(`http://localhost:5173/candidates?userId=${userId}`);
-  }
+    successRedirect: "https://voting-platform.netlify.app",
+    failureRedirect: "https://voting-platform.netlify.app/login"
+  })
 );
+
 
 module.exports = router;
