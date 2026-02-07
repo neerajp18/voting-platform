@@ -12,7 +12,7 @@ export default function Login() {
           Login to cast your vote
         </p>
 
-        <a href="http://localhost:5000/auth/google">
+        <a href="https://voting-platform.onrender.com/auth/google">
           <button style={styles.googleBtn}>
             Login with Google
           </button>
@@ -20,7 +20,7 @@ export default function Login() {
 
         <br /><br />
 
-        <a href="http://localhost:5000/auth/linkedin">
+        <a href="https://voting-platform.onrender.com/auth/linkedin">
           <button style={styles.linkedinBtn}>
             Login with LinkedIn
           </button>

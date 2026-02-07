@@ -7,7 +7,7 @@ export default function Voters() {
 
   useEffect(()=>{
 
-    fetch("http://localhost:5000/api/vote/voters")
+    fetch("https://voting-platform.onrender.com/api/vote/voters")
       .then(res=>res.json())
       .then(data=>setVoters(data));
 

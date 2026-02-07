@@ -27,7 +27,7 @@ export default function Results() {
 
   useEffect(() => {
 
-    fetch("http://localhost:5000/api/vote/results")
+    fetch("https://voting-platform.onrender.com/api/vote/results")
       .then(res => res.json())
       .then(data => {
 

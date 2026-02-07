@@ -16,7 +16,7 @@ export default function Candidates() {
       localStorage.setItem("userId", userId);
     }
 
-    fetch("http://localhost:5000/api/candidates")
+    fetch("https://voting-platform.onrender.com/api/candidates")
       .then(res => res.json())
       .then(data => setCandidates(data));
 
@@ -26,7 +26,7 @@ export default function Candidates() {
 
     const userId = localStorage.getItem("userId");
 
-    const res = await fetch("http://localhost:5000/api/vote", {
+    const res = await fetch("https://voting-platform.onrender.com/api/vote", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

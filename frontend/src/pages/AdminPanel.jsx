@@ -18,7 +18,7 @@ export default function AdminPanel() {
 
 
   const loadCandidates = ()=>{
-    fetch("http://localhost:5000/api/admin/candidates")
+    fetch("https://voting-platform.onrender.com/api/admin/candidates")
     .then(res=>res.json())
     .then(data=>setCandidates(data));
   };
@@ -26,7 +26,7 @@ export default function AdminPanel() {
 
   const addCandidate = async ()=>{
 
-    await fetch("http://localhost:5000/api/admin/candidate",{
+    await fetch("https://voting-platform.onrender.com/api/admin/candidate",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -47,7 +47,7 @@ export default function AdminPanel() {
   const deleteCandidate = async(id)=>{
 
     await fetch(
-      `http://localhost:5000/api/admin/candidate/${id}`,
+      `https://voting-platform.onrender.com/api/admin/candidate/${id}`,
       {method:"DELETE"}
     );
 
@@ -63,7 +63,7 @@ export default function AdminPanel() {
     if (!window.confirm("Are you sure to reset all votes?")) return;
 
     await fetch(
-      "http://localhost:5000/api/admin/reset",
+      "https://voting-platform.onrender.com/api/admin/reset",
       {
         method:"POST"
       }
