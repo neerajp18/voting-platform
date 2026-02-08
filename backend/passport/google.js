@@ -8,7 +8,7 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 
       // IMPORTANT: use your Render URL
-      callbackURL: "https://voting-platform.onrender.com/auth/google/callback"
+      callbackURL: "https://voting-platform-ez8z.onrender.com/auth/google/callback"
     },
     async (accessToken, refreshToken, profile, done) => {
 
