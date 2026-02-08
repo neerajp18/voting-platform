@@ -2,7 +2,7 @@ const router = require("express").Router();
 const passport = require("passport");
 
 
-// Google login route
+// Google Login
 router.get(
   "/google",
   passport.authenticate("google", {
@@ -11,12 +11,29 @@ router.get(
 );
 
 
-// Google callback route
+// Google Callback
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "https://voting-platform.netlify.app",
-    failureRedirect: "https://voting-platform.netlify.app/login"
+    successRedirect: "https://dapper-zabaione-7a0fbb.netlify.app",
+    failureRedirect: "https://dapper-zabaione-7a0fbb.netlify.app/login"
+  })
+);
+
+
+// LinkedIn Login
+router.get(
+  "/linkedin",
+  passport.authenticate("linkedin")
+);
+
+
+// LinkedIn Callback
+router.get(
+  "/linkedin/callback",
+  passport.authenticate("linkedin", {
+    successRedirect: "https://dapper-zabaione-7a0fbb.netlify.app",
+    failureRedirect: "https://dapper-zabaione-7a0fbb.netlify.app/login"
   })
 );
 
